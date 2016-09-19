@@ -1,0 +1,14 @@
+[
+  {
+    "url": "/api/login",
+    "path": "./login/login_controller.js",
+    "objName": "login",
+    "method": "post"
+  },
+  {
+    "url": "/login.html",
+    "path": "./login/login_controller.js",
+    "objName": "getLoginPage",
+    "method": "get"
+  }
+]
