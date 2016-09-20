@@ -5,6 +5,7 @@ var FileStreamRotator = require('file-stream-rotator');
 var fs = require('fs');
 var morgan = require('morgan');
 var path = require('path');
+var _ = require('lodash');
 
 var app = express();
 var logDirectory = path.join(__dirname, '../log');
@@ -72,6 +73,28 @@ if (cluster.isMaster) {
     app.use(methodOverride());
 
     app.use(express.static(__dirname + '/../static'));
+
+    app.use(function (req, res, next) {
+        var path = req.path;
+        
+        if (/^\/login.html/.test(path) || /^\/api\/login/.test(path)) {
+            if (req.session.user) {
+                res.redirect('/');
+            } else {
+                next();
+            }
+        } else {
+            if (!req.session.user) {
+                if (/^\/api\//.test(path)) {
+                    res.status(403).send('Need Authentication');
+                } else {
+                    res.redirect('/login.html');
+                }
+            } else {
+                next();
+            }
+        }
+    });
 
     // Init routes
     var rDes = require('./dispatch.js');

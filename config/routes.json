@@ -1,8 +1,20 @@
 [
   {
+    "url": "/",
+    "path": "./index/index_controller.js",
+    "objName": "getIndexPage",
+    "method": "get"
+  },
+  {
     "url": "/api/login",
     "path": "./login/login_controller.js",
     "objName": "login",
+    "method": "post"
+  },
+  {
+    "url": "/api/logout",
+    "path": "./login/login_controller.js",
+    "objName": "logout",
     "method": "post"
   },
   {
@@ -10,5 +22,35 @@
     "path": "./login/login_controller.js",
     "objName": "getLoginPage",
     "method": "get"
+  },
+  {
+    "url": "/api/users/:username",
+    "path": "./user/user_controller.js",
+    "objName": "getUserByName",
+    "method": "get"
+  },
+  {
+    "url": "/api/users",
+    "path": "./user/user_controller.js",
+    "objName": "getUsers",
+    "method": "get"
+  },
+  {
+    "url": "/api/users",
+    "path": "./user/user_controller.js",
+    "objName": "addUser",
+    "method": "post"
+  },
+  {
+    "url": "/api/users/:username",
+    "path": "./user/user_controller.js",
+    "objName": "deleteUser",
+    "method": "delete"
+  },
+  {
+    "url": "/api/users",
+    "path": "./user/user_controller.js",
+    "objName": "updateUser",
+    "method": "put"
   }
 ]

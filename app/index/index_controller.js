@@ -4,6 +4,6 @@ var logger = require("../utils/log_util.js").getLogger('login/login_controller.j
 var IndexController = module.exports = {};
 
 IndexController.getIndexPage = function (req, res) {
-    
+    res.render('index');
 };
 
